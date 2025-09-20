@@ -27,7 +27,6 @@
             position: absolute;
             display: flex;
             flex-direction: column;
-            /* default: vertikal */
             gap: 14px;
             z-index: 10;
             bottom: 60px;
@@ -74,13 +73,10 @@
         @media (max-width: 480px) {
             .controls {
                 bottom: 80px;
-                /* naik ke atas */
                 left: 50%;
-                /* pindah ke tengah */
                 right: auto;
                 transform: translateX(-50%);
                 flex-direction: row !important;
-                /* paksa horizontal */
                 gap: 16px;
                 justify-content: center;
                 align-items: center;
@@ -118,7 +114,7 @@
                 if (isMobile) {
                     viewer.setAttribute("camera-target", "0m 1m 0m");
                 } else {
-                    viewer.setAttribute("camera-target", "0m 0.7m 0m");
+                    viewer.setAttribute("camera-target", "0m 0.8m 0m");
                 }
                 viewer.setAttribute("camera-orbit", "0deg 75deg auto");
             } else {
