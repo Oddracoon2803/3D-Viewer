@@ -108,14 +108,8 @@
             const viewer = document.getElementById("viewer");
             viewer.setAttribute("src", src);
 
-            const isMobile = window.innerWidth <= 480;
-
             if (src.includes("anyaman_center.glb")) {
-                if (isMobile) {
-                    viewer.setAttribute("camera-target", "0m 1.5m 0m");
-                } else {
-                    viewer.setAttribute("camera-target", "0m 0.8m 0m");
-                }
+                viewer.setAttribute("camera-target", "0m 1.5m 0m");
                 viewer.setAttribute("camera-orbit", "0deg 75deg auto");
             } else {
                 viewer.setAttribute("camera-target", "auto");
@@ -123,6 +117,7 @@
             }
         }
     </script>
+
 
 </body>
 
