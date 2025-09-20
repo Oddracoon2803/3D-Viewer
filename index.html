@@ -62,7 +62,7 @@
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
         }
 
-        /* Tablet */
+
         @media (max-width: 768px) {
             .controls {
                 bottom: 20px;
@@ -70,7 +70,7 @@
             }
         }
 
-        /* HP kecil: tombol sejajar horizontal di tengah bawah */
+
         @media (max-width: 480px) {
             .controls {
                 bottom: 80px;
@@ -113,12 +113,11 @@
             viewer.setAttribute("src", src);
 
             if (src.includes("anyaman_center.glb")) {
-                // Anyaman: naikkan posisinya biar tidak ketabrak tombol
+
                 viewer.setAttribute("camera-target", "0m 1m 0m");
                 viewer.setAttribute("camera-orbit", "0deg 75deg auto");
-                viewer.setAttribute("orientation", "0deg 180deg 0deg");
+
             } else {
-                // Alat Musik: default
                 viewer.setAttribute("camera-target", "auto");
                 viewer.setAttribute("camera-orbit", "0deg 75deg auto");
             }
