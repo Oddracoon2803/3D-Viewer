@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: #1e1e1e;
+            overflow: hidden;
+        }
+
+        model-viewer {
+            width: 100vw;
+            height: 100vh;
+            background: #1e1e1e;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 60px;
+            right: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            z-index: 10;
+        }
+
+        button {
+            padding: 14px 24px;
+            font-family: system-ui, sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #111;
+            background: #fff;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            min-width: 140px;
+            min-height: 48px;
+        }
+
+        button:hover {
+            background: #f3f3f3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        button:active {
+            background: #e6e6e6;
+            transform: translateY(0);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Tablet */
+        @media (max-width: 768px) {
+            .controls {
+                bottom: 20px;
+                right: 20px;
+                gap: 12px;
+            }
+
+            button {
+                padding: 14px 20px;
+                font-size: 16px;
+                border-radius: 10px;
+                min-width: 130px;
+                min-height: 48px;
+            }
+        }
+
+        /* HP kecil: tombol sejajar di tengah bawah, lebih besar & naik ke atas */
+        @media (max-width: 480px) {
+            .controls {
+                bottom: 100px;
+                /* naik ke atas */
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                flex-direction: row;
+                /* sejajar horizontal */
+                gap: 16px;
+                justify-content: center;
+            }
+
+            button {
+                padding: 16px 24px;
+                /* lebih besar */
+                font-size: 18px;
+                border-radius: 12px;
+                min-width: 140px;
+                /* lebih lebar */
+                min-height: 52px;
+                /* lebih tinggi */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="controls">
+        <button onclick="gantiModel('models/alat_musik.glb')">Alat Musik</button>
+        <button onclick="gantiModel('models/anyaman_center.glb')">Anyaman</button>
+    </div>
+
+    <model-viewer id="viewer" src="models/alat_musik.glb" alt="3D model" camera-controls auto-rotate exposure="1"
+        camera-target="auto" camera-orbit="0deg 75deg auto" field-of-view="auto">
+    </model-viewer>
+
+    <script>
+        function gantiModel(src) {
+            document.getElementById("viewer").setAttribute("src", src);
+        }
+    </script>
+</body>
+
+</html>
