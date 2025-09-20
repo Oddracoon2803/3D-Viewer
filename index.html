@@ -109,7 +109,18 @@
 
     <script>
         function gantiModel(src) {
-            document.getElementById("viewer").setAttribute("src", src);
+            const viewer = document.getElementById("viewer");
+            viewer.setAttribute("src", src);
+
+            if (src.includes("anyaman_center.glb")) {
+                // Anyaman: naikkan posisinya biar tidak ketabrak tombol
+                viewer.setAttribute("camera-target", "0m 1m 0m");
+                viewer.setAttribute("camera-orbit", "0deg 75deg auto");
+            } else {
+                // Alat Musik: default
+                viewer.setAttribute("camera-target", "auto");
+                viewer.setAttribute("camera-orbit", "0deg 75deg auto");
+            }
         }
     </script>
 </body>
