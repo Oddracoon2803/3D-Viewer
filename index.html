@@ -25,15 +25,16 @@
 
         .controls {
             position: absolute;
-            bottom: 60px;
-            right: 60px;
             display: flex;
             flex-direction: column;
+            /* default: vertikal */
             gap: 14px;
             z-index: 10;
+            bottom: 60px;
+            right: 60px;
         }
 
-        button {
+        .controls button {
             padding: 14px 24px;
             font-family: system-ui, sans-serif;
             font-size: 18px;
@@ -44,18 +45,18 @@
             color: #111;
             background: #fff;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
             min-width: 140px;
             min-height: 48px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
 
-        button:hover {
+        .controls button:hover {
             background: #f3f3f3;
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
         }
 
-        button:active {
+        .controls button:active {
             background: #e6e6e6;
             transform: translateY(0);
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
@@ -66,41 +67,31 @@
             .controls {
                 bottom: 20px;
                 right: 20px;
-                gap: 12px;
-            }
-
-            button {
-                padding: 14px 20px;
-                font-size: 16px;
-                border-radius: 10px;
-                min-width: 130px;
-                min-height: 48px;
             }
         }
 
-        /* HP kecil: tombol sejajar di tengah bawah, lebih besar & naik ke atas */
+        /* HP kecil: tombol sejajar horizontal di tengah bawah */
         @media (max-width: 480px) {
             .controls {
-                bottom: 100px;
+                bottom: 80px;
                 /* naik ke atas */
                 left: 50%;
+                /* pindah ke tengah */
                 right: auto;
                 transform: translateX(-50%);
-                flex-direction: row;
-                /* sejajar horizontal */
+                flex-direction: row !important;
+                /* paksa horizontal */
                 gap: 16px;
                 justify-content: center;
+                align-items: center;
             }
 
-            button {
+            .controls button {
                 padding: 16px 24px;
-                /* lebih besar */
-                font-size: 18px;
+                font-size: 16px;
                 border-radius: 12px;
-                min-width: 140px;
-                /* lebih lebar */
-                min-height: 52px;
-                /* lebih tinggi */
+                min-width: 130px;
+                min-height: 50px;
             }
         }
     </style>
