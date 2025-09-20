@@ -108,15 +108,18 @@
             const viewer = document.getElementById("viewer");
             viewer.setAttribute("src", src);
 
-            if (src.includes("anyaman_center.glb")) {
-                viewer.setAttribute("camera-target", "0m 1.5m 0m");
+            if (src.includes("anyaman.glb")) {
+
+                viewer.setAttribute("camera-target", "0m 1m 0m");
                 viewer.setAttribute("camera-orbit", "0deg 75deg auto");
             } else {
+
                 viewer.setAttribute("camera-target", "auto");
                 viewer.setAttribute("camera-orbit", "0deg 75deg auto");
             }
         }
     </script>
+
 
 
 </body>
