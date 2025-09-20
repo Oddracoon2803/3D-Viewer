@@ -100,7 +100,7 @@
 <body>
     <div class="controls">
         <button onclick="gantiModel('models/alat_musik.glb')">Alat Musik</button>
-        <button onclick="gantiModel('models/anyaman_center.glb')">Anyaman</button>
+        <button onclick="gantiModel('models/anyaman.glb')">Anyaman</button>
     </div>
 
     <model-viewer id="viewer" src="models/alat_musik.glb" alt="3D model" camera-controls auto-rotate exposure="1"
@@ -112,15 +112,22 @@
             const viewer = document.getElementById("viewer");
             viewer.setAttribute("src", src);
 
+            const isMobile = window.innerWidth <= 480;
+
             if (src.includes("anyaman_center.glb")) {
-                viewer.setAttribute("camera-target", "0m 1m 0m");
+                if (isMobile) {
+                    viewer.setAttribute("camera-target", "0m 1m 0m");
+                } else {
+                    viewer.setAttribute("camera-target", "0m 0.7m 0m");
+                }
                 viewer.setAttribute("camera-orbit", "0deg 75deg auto");
             } else {
-                viewer.setAttribute("camera-target", "0m 1.5m 0m");
+                viewer.setAttribute("camera-target", "auto");
                 viewer.setAttribute("camera-orbit", "0deg 75deg auto");
             }
         }
     </script>
+
 </body>
 
 </html>
